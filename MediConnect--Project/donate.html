@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Medicine - MediConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">MediConnect</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="medi.html">Available Medicines</a></li>
+                    <li><a href="ngos.html">NGO Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="donate.html" class="btn btn-primary nav-btn">Donate Medicine <i class="fas fa-hand-holding-medical"></i></a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero donate-hero animate-in-view">
+            <div class="container text-center">
+                <h2>Donate Your Unused Medicine</h2>
+                <p class="page-description">Your generous donation can be a lifeline. Fill out the form below to list your medicines for those in need.</p>
+            </div>
+        </section>
+
+        <section class="donate-form-section padding-section">
+            <div class="container">
+                <form id="donate-form" class="form-section animate-in-view">
+                    <h2>Medicine Donation Form</h2>
+                    <div class="form-group">
+                        <label for="donor-name">Donor Name <span class="required">*</span></label>
+                        <input type="text" id="donor-name" name="donorName" placeholder="Your Full Name" required>
+                        <div id="donor-name-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="contact-number" name="contactNumber" placeholder="e.g., +91 9876543210" required>
+                        <div id="contact-number-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicine-name">Medicine Name <span class="required">*</span></label>
+                        <input type="text" id="medicine-name" name="medicineName" placeholder="e.g., Paracetamol, Amoxicillin" required>
+                        <div id="medicine-name-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date <span class="required">*</span></label>
+                        <input type="date" id="expiry-date" name="expiryDate" required>
+                        <div id="expiry-date-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity <span class="required">*</span></label>
+                        <input type="number" id="quantity" name="quantity" min="1" placeholder="Number of packs/strips" required>
+                        <div id="quantity-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location <span class="required">*</span></label>
+                        <select id="location" name="location" required>
+                            <option value="">Select your city/area</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Lucknow">Lucknow</option>
+                            <option value="Shimla">Shimla</option>
+                            <option value="Dehradun">Dehradun</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Nagpur">Nagpur</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Vadodara">Vadodara</option>
+                            <option value="Kangra">Kangra</option>
+                            </select>
+                        <div id="location-error" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicine-image">Upload Medicine Image (Optional)</label>
+                        <input type="file" id="medicine-image" name="medicineImage" accept="image/*">
+                        <div id="medicine-image-preview" class="image-preview">
+                            <span class="preview-text">No Image Selected</span>
+                            <img src="#" alt="Image Preview" style="display:none;">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large animate-btn">Submit Donation <i class="fas fa-hand-holding-medical"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="medi.html">Available Medicines</a></li>
+                    <li><a href="ngos.html">NGO Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediConnect. All rights reserved. Empowering health, one donation at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content animate-in-view">
+            <span class="close-button" onclick="closeModal('successModal')">&times;</span>
+            <i class="fas fa-check-circle" style="color: var(--primary-color); font-size: 3rem; margin-bottom: 15px;"></i>
+            <h3>Donation Submitted Successfully!</h3>
+            <p>Thank you for your generosity. Your medicine listing has been received and will soon appear on the 'Available Medicines' page.</p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">Got It!</button>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content animate-in-view">
+            <span class="close-button" onclick="closeModal('errorModal')">&times;</span>
+            <i class="fas fa-exclamation-circle" style="color: #dc3545; font-size: 3rem; margin-bottom: 15px;"></i>
+            <h3>Submission Failed</h3>
+            <p>Please correct the errors in the form and try again.</p>
+            <button class="btn btn-secondary" onclick="closeModal('errorModal')">Close</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer></script>
+</body>
+</html>

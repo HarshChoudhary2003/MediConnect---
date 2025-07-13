@@ -1,0 +1,1734 @@
+/* Base Styles for MediConnect */
+
+/* CSS Variables for Theming */
+:root {
+    --primary-color: #28a745; /* Green for medical/hope */
+    --secondary-color: #007bff; /* Blue for actions/links */
+    --accent-color: #ffc107; /* Yellow for alerts/highlights */
+    --text-color: #333;
+    --light-text-color: #666;
+    --white: #fff;
+    --light-bg: #f8f9fa;
+    --border-color: #dee2e6;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 10px;
+    --max-width: 1200px;
+
+    /* Fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 0.8em;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
+
+/* Buttons */
+.btn {
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    gap: 8px; /* Space between text and icon */
+    padding: 12px 25px;
+    border-radius: var(--border-radius-medium);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%); /* conceptual darken */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.btn-secondary:hover {
+    background-color: darken(var(--secondary-color), 10%); /* conceptual darken */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+.margin-top-large {
+    margin-top: 40px;
+}
+.margin-bottom-large {
+    margin-bottom: 40px;
+}
+.padding-section {
+    padding: 80px 0;
+}
+.highlight {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Animations */
+/* Fade in from bottom */
+.animate-in-view {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-in-view.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header & Navigation */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px var(--shadow-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    padding-bottom: 5px; /* Space for underline */
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Specific nav button styling for the new buttons */
+.main-nav .nav-btn {
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    margin-left: 10px;
+    border: none; /* Remove default button border for nav buttons */
+}
+.main-nav .nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* No scroll utility */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* Form Styles (General) - will be used across donate and contact pages */
+.form-section {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46,139,87,0.2);
+}
+
+.form-group .required {
+    color: #dc3545; /* Red for required fields */
+    margin-left: 4px;
+}
+
+.error-message {
+    color: #dc3545; /* Red */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    min-height: 18px; /* Reserve space to prevent layout shift */
+    text-align: left;
+    display: none; /* Hidden by default, shown by JS */
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 25px;
+}
+
+.close-button {
+    color: var(--light-text-color);
+    font-size: 2rem;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+    .main-nav a {
+        font-size: 0.95rem;
+    }
+    .main-nav .nav-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .main-nav {
+        display: none; /* Hidden by default on mobile */
+        width: 100%;
+        text-align: center;
+        background-color: var(--white);
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        box-shadow: 0 10px 20px var(--shadow-medium);
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 15px;
+        transform: translateY(-100%); /* Slide up animation */
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .main-nav.active {
+        display: flex; /* Show when active */
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .main-nav a {
+        padding: 10px 0;
+        font-size: 1.1rem;
+    }
+    .main-nav a::after { /* Remove underline for mobile */
+        display: none;
+    }
+
+    .main-nav .nav-btn {
+        margin: 10px auto; /* Center buttons on mobile */
+        width: 80%;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 1001; /* Ensure it's above other elements */
+    }
+
+    .hero-content {
+        padding: 60px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-section {
+        padding: 25px;
+        margin: 20px auto;
+    }
+    .form-section h2 {
+        font-size: 1.8rem;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.6rem; }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Home Page Specific Styles */
+.hero-section {
+    background: linear-gradient(135deg, var(--light-bg) 0%, rgba(40,167,69,0.1) 100%);
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    min-height: 80vh; /* Make hero section taller */
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(30px); /* For animate-in-view */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Longer delay for hero content */
+}
+.hero-content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
+.hero-description {
+    font-size: 1.15rem;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.9s;
+}
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.2s;
+}
+
+.hero-buttons .btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    max-width: 500px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateX(30px); /* For animate-in-view */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    animation-delay: 1s; /* Image appears after text */
+}
+.hero-image.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-img-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Keyframes for hero section text animation */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: var(--white);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-card {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(20px); /* For animate-in-view */
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+.step-card.is-visible { /* Add delay for staggered animation */
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Staggered animation for step cards - controlled by JS if needed, or by CSS delay */
+.step-card:nth-child(1) { transition-delay: 0s; }
+.step-card:nth-child(2) { transition-delay: 0.1s; }
+.step-card:nth-child(3) { transition-delay: 0.2s; }
+.step-card:nth-child(4) { transition-delay: 0.3s; }
+
+
+.step-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.step-card p {
+    color: var(--light-text-color);
+}
+
+/* Mission Section */
+.mission-section {
+    background-color: var(--white);
+}
+.mission-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.mission-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.mission-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.mission-content ul {
+    margin-top: 20px;
+}
+
+.mission-content li {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateX(-20px); /* For animate-in-view */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.mission-content li.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.mission-content li:nth-child(1) { transition-delay: 0s; }
+.mission-content li:nth-child(2) { transition-delay: 0.1s; }
+.mission-content li:nth-child(3) { transition-delay: 0.2s; }
+.mission-content li:nth-child(4) { transition-delay: 0.3s; }
+
+
+.mission-content li .fas {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.mission-image {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.mission-img-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(40,167,69,0.9) 0%, rgba(0,123,255,0.9) 100%);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.cta-section .section-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-buttons .btn {
+    border: 2px solid var(--white); /* White border for contrast */
+}
+
+.cta-buttons .btn-primary {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.cta-buttons .btn-primary:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-color: var(--light-bg);
+}
+
+.cta-buttons .btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+}
+
+.cta-buttons .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+
+/* Responsive Adjustments for Home Page */
+@media (max-width: 992px) {
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content, .hero-image {
+        max-width: 100%; /* Allow content to take full width */
+        transform: none; /* Reset individual animations for responsive stacking */
+    }
+    .hero-content.is-visible, .hero-image.is-visible {
+        transform: none;
+    }
+
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .mission-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .mission-image {
+        order: -1; /* Move image above content on small screens */
+    }
+    .mission-content li {
+        justify-content: center;
+        transform: none; /* Reset individual animations */
+    }
+    .mission-content li.is-visible {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0;
+        min-height: auto;
+    }
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    .hero-buttons .btn-large {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .step-card {
+        margin-bottom: 20px;
+    }
+
+    .mission-content li {
+        font-size: 1rem;
+        flex-direction: column; /* Stack icon and text */
+        align-items: center;
+        text-align: center;
+    }
+    .mission-content li .fas {
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    .hero-section { padding: 60px 0; }
+    .hero-content h2 { font-size: 1.8rem; }
+}
+
+/* Home Page Specific Styles */
+.hero-section {
+    background: linear-gradient(135deg, var(--light-bg) 0%, rgba(40,167,69,0.1) 100%);
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    min-height: 80vh; /* Make hero section taller */
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(30px); /* For animate-in-view */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Longer delay for hero content */
+}
+.hero-content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
+.hero-description {
+    font-size: 1.15rem;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.9s;
+}
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.2s;
+}
+
+.hero-buttons .btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    max-width: 500px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateX(30px); /* For animate-in-view */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    animation-delay: 1s; /* Image appears after text */
+}
+.hero-image.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-img-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Keyframes for hero section text animation */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: var(--white);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-card {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(20px); /* For animate-in-view */
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+.step-card.is-visible { /* Add delay for staggered animation */
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Staggered animation for step cards - controlled by JS if needed, or by CSS delay */
+.step-card:nth-child(1) { transition-delay: 0s; }
+.step-card:nth-child(2) { transition-delay: 0.1s; }
+.step-card:nth-child(3) { transition-delay: 0.2s; }
+.step-card:nth-child(4) { transition-delay: 0.3s; }
+
+
+.step-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.step-card p {
+    color: var(--light-text-color);
+}
+
+/* Mission Section */
+.mission-section {
+    background-color: var(--white);
+}
+.mission-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.mission-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.mission-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.mission-content ul {
+    margin-top: 20px;
+}
+
+.mission-content li {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0; /* For animate-in-view */
+    transform: translateX(-20px); /* For animate-in-view */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.mission-content li.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.mission-content li:nth-child(1) { transition-delay: 0s; }
+.mission-content li:nth-child(2) { transition-delay: 0.1s; }
+.mission-content li:nth-child(3) { transition-delay: 0.2s; }
+.mission-content li:nth-child(4) { transition-delay: 0.3s; }
+
+
+.mission-content li .fas {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.mission-image {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.mission-img-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(40,167,69,0.9) 0%, rgba(0,123,255,0.9) 100%);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.cta-section .section-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-buttons .btn {
+    border: 2px solid var(--white); /* White border for contrast */
+}
+
+.cta-buttons .btn-primary {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.cta-buttons .btn-primary:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-color: var(--light-bg);
+}
+
+.cta-buttons .btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+}
+
+.cta-buttons .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+
+/* Responsive Adjustments for Home Page */
+@media (max-width: 992px) {
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content, .hero-image {
+        max-width: 100%; /* Allow content to take full width */
+        transform: none; /* Reset individual animations for responsive stacking */
+    }
+    .hero-content.is-visible, .hero-image.is-visible {
+        transform: none;
+    }
+
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .mission-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .mission-image {
+        order: -1; /* Move image above content on small screens */
+    }
+    .mission-content li {
+        justify-content: center;
+        transform: none; /* Reset individual animations */
+    }
+    .mission-content li.is-visible {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0;
+        min-height: auto;
+    }
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    .hero-buttons .btn-large {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .step-card {
+        margin-bottom: 20px;
+    }
+
+    .mission-content li {
+        font-size: 1rem;
+        flex-direction: column; /* Stack icon and text */
+        align-items: center;
+        text-align: center;
+    }
+    .mission-content li .fas {
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    .hero-section { padding: 60px 0; }
+    .hero-content h2 { font-size: 1.8rem; }
+}
+
+/* Donate css */
+/* Page Hero Sections (General) */
+.page-hero {
+    background: linear-gradient(135deg, rgba(40,167,69,0.1) 0%, rgba(0,123,255,0.05) 100%);
+    padding: 80px 0 50px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--border-color);
+}
+.page-hero h2 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.page-hero .page-description {
+    font-size: 1.15rem;
+    color: var(--light-text-color);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Donate Page Specific */
+.donate-hero h2 {
+    font-size: 3.5rem;
+}
+.donate-form-section {
+    padding-top: 20px;
+}
+.image-preview {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+    background-color: var(--light-bg);
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none; /* Hidden by default */
+}
+
+.image-preview .preview-text {
+    color: var(--light-text-color);
+    font-style: italic;
+}
+
+/* Responsive for donate page */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 60px 0 30px;
+        margin-bottom: 30px;
+    }
+    .page-hero h2 {
+        font-size: 2.5rem;
+    }
+    .page-hero .page-description {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .page-hero h2 {
+        font-size: 2rem;
+    }
+    .form-section {
+        padding: 20px;
+    }
+}
+
+/*  medicine Specific */
+
+/* Available Medicines Page Specific */
+.available-hero h2 {
+    font-size: 3.5rem;
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 15px var(--shadow-light);
+    margin-bottom: 40px;
+}
+
+.filter-controls label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.filter-controls select {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-controls select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46,139,87,0.2);
+}
+
+.medicines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.medicine-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* For animate-in-view via JS */
+    transform: translateY(30px); /* For animate-in-view via JS */
+}
+.medicine-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.medicine-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.medicine-card-image {
+    width: 100%;
+    height: 200px;
+    background-color: var(--light-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+.medicine-card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.medicine-card-image .placeholder-icon {
+    font-size: 4rem;
+    color: var(--light-text-color);
+}
+
+
+.medicine-card-content {
+    padding: 25px;
+    flex-grow: 1; /* Allows content to take up available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.medicine-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.medicine-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.medicine-card p strong {
+    color: var(--secondary-color);
+}
+
+.medicine-card .expiry-status {
+    padding: 5px 10px;
+    border-radius: var(--border-radius-small);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block; /* Allows padding and background */
+}
+
+.expiry-status.safe {
+    background-color: rgba(40,167,69,0.2); /* Light green */
+    color: var(--primary-color);
+}
+
+.expiry-status.expiring-soon {
+    background-color: rgba(255,193,7,0.2); /* Light yellow */
+    color: #ffc107;
+}
+
+.expiry-status.critical {
+    background-color: rgba(220,53,69,0.2); /* Light red */
+    color: #dc3545;
+}
+
+.medicine-card .btn-request {
+    margin-top: auto; /* Pushes button to the bottom */
+    width: 100%;
+    text-align: center;
+}
+
+.no-medicines-message {
+    padding: 50px 20px;
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    width: 100%;
+    text-align: center;
+}
+
+/* Responsive for available medicines page */
+@media (max-width: 768px) {
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        gap: 15px;
+    }
+    .filter-controls label,
+    .filter-controls select {
+        width: 100%;
+    }
+    .medicines-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 480px) {
+    .medicine-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ngos Page Specific */
+
+/* NGO Partners Page Specific */
+.ngos-hero h2 {
+    font-size: 3.5rem;
+}
+
+.ngos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.ngo-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* For animate-in-view via JS */
+    transform: translateY(30px); /* For animate-in-view via JS */
+}
+.ngo-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.ngo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.ngo-card .ngo-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.ngo-card h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.ngo-card p {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+}
+
+.ngo-card .contact-info {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.ngo-card .contact-info a {
+    color: var(--primary-color);
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.ngo-card .contact-info a:hover {
+    color: var(--secondary-color);
+}
+
+.ngo-card .areas-served {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Responsive for NGO page */
+@media (max-width: 768px) {
+    .ngos-grid {
+        grid-template-columns: 1fr;
+    }
+    .ngo-card h3 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Contact page */
+
+/* Contact Us Page Specific */
+.contact-hero h2 {
+    font-size: 3.5rem;
+}
+
+.contact-content-section {
+    padding-top: 20px;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(30px); /* For animate-in-view */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.contact-info.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-info p .fas, .contact-info p .fab {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.contact-info .emergency-note {
+    font-size: 0.95rem;
+    color: #dc3545; /* Red for emphasis */
+    margin-top: 25px;
+    padding: 10px;
+    background-color: rgba(220,53,69,0.1);
+    border-left: 4px solid #dc3545;
+    border-radius: var(--border-radius-small);
+}
+
+.social-links-contact {
+    margin-top: 30px;
+    text-align: center;
+}
+.social-links-contact a {
+    color: var(--light-text-color);
+    font-size: 1.8rem;
+    margin: 0 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-links-contact a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.contact-grid .form-section { /* Override default form-section margin for contact page */
+    margin: 0;
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Responsive for contact page */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+    .contact-info, .contact-grid .form-section {
+        max-width: 100%; /* Take full width */
+    }
+    .contact-info h3 {
+        font-size: 2rem;
+    }
+    .contact-info p {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .contact-info p {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .contact-info p .fas, .contact-info p .fab {
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+}

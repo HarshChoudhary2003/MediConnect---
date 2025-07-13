@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for EcoSwap Hub</title>
+    <link rel="stylesheet" href="log.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="auth-page">
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">EcoSwap Hub</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#items">Browse Items</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary nav-btn animate-btn">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card animate-in-view">
+            <h2 class="auth-title">Join EcoSwap Hub!</h2>
+            <p class="auth-subtitle">Create your account and start swapping sustainably.</p>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signup-username">Username <span class="required">*</span></label>
+                    <input type="text" id="signup-username" name="username" required placeholder="Choose a username">
+                    <div class="error-message" id="signup-username-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="signup-email" name="email" required placeholder="your.email@example.com">
+                    <div class="error-message" id="signup-email-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password <span class="required">*</span></label>
+                    <input type="password" id="signup-password" name="password" required placeholder="Create a strong password">
+                    <div class="error-message" id="signup-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password <span class="required">*</span></label>
+                    <input type="password" id="signup-confirm-password" name="confirm-password" required placeholder="Re-enter your password">
+                    <div class="error-message" id="signup-confirm-password-error"></div>
+                </div>
+                 <div class="form-group terms-checkbox">
+                    <input type="checkbox" id="terms-agree" name="terms-agree" required>
+                    <label for="terms-agree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> <span class="required">*</span></label>
+                    <div class="error-message" id="terms-error"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large auth-btn animate-btn">Sign Up <i class="fas fa-user-plus"></i></button>
+            </form>
+            <p class="auth-footer">Already have an account? <a href="login.html">Log In Here</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 EcoSwap Hub. All rights reserved. Made with <i class="fas fa-heart"></i> for a sustainable future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* --- Authentication Pages (Login/Signup) --- */
+.auth-page {
+    background: linear-gradient(135deg, var(--bg-light) 0%, rgba(46,139,87,0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensure main content takes space for auth pages */
+.auth-page main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0; /* Add some padding */
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 25px;
+    margin: auto; /* Center vertically and horizontally */
+}
+
+.auth-card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-align: center;
+    opacity: 0; /* For animate-in-view */
+    transform: translateY(30px); /* For animate-in-view */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Match existing animation */
+}
+/* Ensure auth-card also gets animated if its parent isn't observed (like main) */
+.auth-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.auth-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.auth-subtitle {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    text-align: left;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.auth-form label .required {
+    color: #dc3545; /* Red for required fields */
+    margin-left: 4px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46,139,87,0.2);
+}
+
+.auth-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--primary-color); /* Styles the checkbox */
+}
+
+.remember-me label {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--primary-color);
+}
+
+.auth-footer {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: var(--light-text-color);
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Error Message Styling for Forms */
+.error-message {
+    color: #dc3545; /* Red */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    min-height: 18px; /* Reserve space to prevent layout shift */
+    text-align: left;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 25px;
+    margin-bottom: 25px !important; /* Override default form-group margin */
+}
+.terms-checkbox input {
+    width: auto;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+.terms-checkbox label {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+.terms-checkbox label a {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+
+/* Responsive Adjustments for Auth Pages */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 30px;
+    }
+    .auth-title {
+        font-size: 2rem;
+    }
+    .auth-subtitle {
+        font-size: 1rem;
+    }
+    .auth-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

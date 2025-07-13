@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MediConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">MediConnect</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="medi.html">Available Medicines</a></li>
+                    <li><a href="ngos.html">NGO Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="donate.html" class="btn btn-primary nav-btn">Donate Medicine <i class="fas fa-hand-holding-medical"></i></a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero contact-hero animate-in-view">
+            <div class="container text-center">
+                <h2>Get in Touch with MediConnect</h2>
+                <p class="page-description">Have questions, feedback, or need assistance? Reach out to us!</p>
+            </div>
+        </section>
+
+        <section class="contact-content-section padding-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info animate-in-view">
+                        <h3>Our Contact Information</h3>
+                        <p><i class="fas fa-phone-alt"></i> **Helpline:** +91 1800-123-4567</p>
+                        <p><i class="fas fa-envelope"></i> **Email:** info@mediconnect.org</p>
+                        <p><i class="fas fa-map-marker-alt"></i> **Address:** 123 Health Drive, Wellness City, State, India</p>
+                        <p class="emergency-note">For urgent medical needs, please contact your local emergency services or healthcare provider directly.</p>
+                        <div class="social-links-contact">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="form-section animate-in-view">
+                        <h2>Send Us a Message</h2>
+                        <div class="form-group">
+                            <label for="contact-name">Your Name <span class="required">*</span></label>
+                            <input type="text" id="contact-name" name="contactName" placeholder="Enter your full name" required>
+                            <div id="contact-name-error" class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Your Email <span class="required">*</span></label>
+                            <input type="email" id="contact-email" name="contactEmail" placeholder="e.g., example@domain.com" required>
+                            <div id="contact-email-error" class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="contactSubject" placeholder="Brief subject of your message">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Your Message <span class="required">*</span></label>
+                            <textarea id="contact-message" name="contactMessage" rows="6" placeholder="Type your message here..." required></textarea>
+                            <div id="contact-message-error" class="error-message"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large animate-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="medi.html">Available Medicines</a></li>
+                    <li><a href="ngos.html">NGO Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediConnect. All rights reserved. Empowering health, one donation at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contactSuccessModal" class="modal">
+        <div class="modal-content animate-in-view">
+            <span class="close-button" onclick="closeModal('contactSuccessModal')">&times;</span>
+            <i class="fas fa-check-circle" style="color: var(--primary-color); font-size: 3rem; margin-bottom: 15px;"></i>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. We will get back to you shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal('contactSuccessModal')">Got It!</button>
+        </div>
+    </div>
+
+    <div id="contactErrorModal" class="modal">
+        <div class="modal-content animate-in-view">
+            <span class="close-button" onclick="closeModal('contactErrorModal')">&times;</span>
+            <i class="fas fa-exclamation-circle" style="color: #dc3545; font-size: 3rem; margin-bottom: 15px;"></i>
+            <h3>Message Failed to Send</h3>
+            <p>Please ensure all required fields are filled correctly.</p>
+            <button class="btn btn-secondary" onclick="closeModal('contactErrorModal')">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer></script>
+</body>
+</html>
